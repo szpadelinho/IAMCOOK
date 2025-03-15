@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RecipeDetailsFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        >
+        <TextView
+            android:id="@+id/fragment_recipe_name"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="Default Recipe Name"
+            android:textSize="15pt"
+            android:layout_margin="10dp"
+            />
+        <TextView
+            android:id="@+id/fragment_recipe_diff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Default Difficulty Level"
+            />
+        <TextView
+            android:id="@+id/fragment_recipe_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Default Preparation Time"
+            />
+        <TextView
+            android:id="@+id/fragment_recipe_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Default Description"
+            />
+        <RatingBar
+            android:id="@+id/fragment_recipe_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:rating="2"
+            android:progressTint="@color/black"
+            android:numStars="5"
+            android:stepSize=".5"
+            android:isIndicator="true"
+            android:layout_margin="10dp"
+            />
+        <Button
+            android:id="@+id/delete_recipe_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            android:text="USUŃ TEN PRZEPIS"
+            android:textColor="@color/black"
+            android:textSize="10pt"
+            />
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddRecipeFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:layout_gravity="center">
+        <EditText
+            android:id="@+id/add_recipe_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Wpisz tutaj nazwę przepisu"/>
+        <EditText
+            android:id="@+id/add_recipe_diff"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Wpisz tutaj trudnosc przygotowania tego przepisu"/>
+        <EditText
+            android:id="@+id/add_recipe_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Wpisz tutaj czas przygotowania"
+            android:inputType="number"/>
+        <EditText
+            android:id="@+id/add_recipe_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Wpisz tutaj opis przepisu"
+            android:lines="5"/>
+        <RatingBar
+            android:id="@+id/add_recipe_rating"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:numStars="5"
+            android:stepSize=".5"
+            android:progressTint="@color/black"
+            />
+        <Button
+            android:id="@+id/add_recipe_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"
+            android:text="DODAJ PRZEPIS DO LISTY"
+            android:textColor="@color/black"
+            android:textSize="10pt"
+            />
+    </LinearLayout>
+</FrameLayout>
