@@ -14,6 +14,12 @@ import org.w3c.dom.Text
 
 class RecipeDetailsFragment : Fragment(){
 
+    private var itemName: String? = null
+    private var itemDiff: String? = null
+    private var itemTime: Int = 0
+    private var itemDesc: String? = null
+    private var itemRating: Float = 0.0f
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
     }
@@ -36,11 +42,26 @@ class RecipeDetailsFragment : Fragment(){
         val deleteRecipe: Button = view.findViewById(R.id.delete_recipe_button)
 
         arguments?.let{
-            recipeNameTextView.text = it.getString("name")
-            recipeDiffTextView.text = it.getString("diff")
-            recipeTimeTextView.text = it.getInt("time").toString()
-            recipeDescTextView.text = it.getString("desc")
-            recipeRatingBar.rating = it.getFloat("rating")
+            itemName = it.getString("name")
+            itemDiff = it.getString("diff")
+            itemTime = it.getInt("time")
+            itemDesc = it.getString("desc")
+            itemRating = it.getFloat("rating")
+
+            recipeNameTextView.text = itemName
+            recipeDiffTextView.text = itemDiff
+            recipeTimeTextView.text = itemTime.toString()
+            recipeDescTextView.text = itemDesc
+            recipeRatingBar.rating = itemRating
+        }
+
+        recipeRatingBar.setOnRatingBarChangeListener{ _, rating, _ ->
+            val recipeListFragment = (requireActivity() as MainActivity).supportFragmentManager.findFragmentByTag("recipeListFragmentTag") as? RecipeListFragment
+            if(recipeListFragment != null){
+                val updatedItem = Item(itemName!!, itemDiff!!, itemTime, rating, itemDesc!!)
+                recipeListFragment.updateItem(updatedItem)
+                recipeListFragment.refreshData()
+            }
         }
 
         deleteRecipe.setOnClickListener {
@@ -48,7 +69,10 @@ class RecipeDetailsFragment : Fragment(){
             if(recipeListFragment != null){
                 recipeListFragment.removeItem(recipeNameTextView.text.toString())
                 Toast.makeText(context, "Przepis usunięty!", Toast.LENGTH_SHORT).show()
-                parentFragmentManager.popBackStack()
+                (requireActivity() as MainActivity).supportFragmentManager
+                    .beginTransaction()
+                    .replace(R.id.fragment_panel, recipeListFragment, "recipeListFragmentTag")
+                    .commit()
             }
             else{
                 Toast.makeText(context, "Błąd podczasusuwania przepisu", Toast.LENGTH_SHORT).show()

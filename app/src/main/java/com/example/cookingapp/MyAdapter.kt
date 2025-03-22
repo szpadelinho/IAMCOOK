@@ -1,6 +1,7 @@
 package com.example.cookingapp
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,6 +18,13 @@ class MyAdapter (
         val itemDiff: TextView = itemView.findViewById(R.id.item_list_recipe_diff)
         val itemTime: TextView = itemView.findViewById(R.id.item_list_recipe_time)
         val itemRating: RatingBar = itemView.findViewById(R.id.item_list_recipe_rating)
+    }
+
+    fun updateData(newItemList: List<Item>) {
+        itemList.clear()
+        itemList.addAll(newItemList)
+        notifyDataSetChanged()
+        Log.d("MyAdapter", "Updating data: ${itemList.size}")
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {

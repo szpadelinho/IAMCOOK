@@ -10,6 +10,15 @@
     <FrameLayout
         android:layout_height="wrap_content"
         android:layout_width="match_parent">
+        <ImageButton
+            android:id="@+id/filter_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/lines"
+            android:background="@android:color/transparent"
+            android:layout_gravity="center_vertical|left"
+            android:layout_marginLeft="10dp"
+            />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -29,6 +38,13 @@
             android:textSize="10pt"
             android:scaleY=".7"
             android:fontFamily="sans-serif-black"/>
+        <Button
+            android:id="@+id/logo_button"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@android:color/transparent"
+            />
         <ImageButton
             android:id="@+id/new_recipe_button"
             android:layout_width="wrap_content"
@@ -37,7 +53,6 @@
             android:background="@android:color/transparent"
             android:layout_gravity="center_vertical|right"
             android:layout_marginRight="10dp"
-
             />
     </FrameLayout>
     <androidx.fragment.app.FragmentContainerView
